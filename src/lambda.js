@@ -1,4 +1,6 @@
-const Alexa = require('alexa-sdk');
+"use strict";
+
+const Alexa = require("alexa-sdk");
 
 const states = {
   ORDER_MODE: '_ORDER_MODE',
@@ -174,6 +176,8 @@ const veggieModeHandlers = Alexa.CreateStateHandler(states.VEGGIE_MODE, {
   },
 });
 
+
+// Alexa sdk handler has the request received, aws context and a callback
 exports.handler = (event, context, callback) => {
   const alexa = Alexa.handler(event, context, callback);
   alexa.registerHandlers(newSessionhandlers, orderHandler, tortillaModeHandlers, meatModeHandlers, veggieModeHandlers);

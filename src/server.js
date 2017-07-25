@@ -18,6 +18,8 @@ app.get('/alexa', (req, res) => {
 });
 
 app.post('/alexa', (req, res) => {
+  // context mocks (grabs) the Amazon aws context object (region, environment variable, etc)
+  // and makes available on the skill
   const ctx = context();
   lambda.handler(req.body, ctx);
   ctx.Promise
